@@ -158,5 +158,56 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 */
 		echo Avada()->settings->get( 'space_body' ); // WPCS: XSS ok.
 		?>
+		
+		<!--OWL-->
+		<link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_directory_uri(); ?>/css/owl.carousel.min.css">
+		<script type="text/javascript">
+			var $ = jQuery.noConflict();
+		</script>
+		<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/js/owl.carousel.js"></script>
+			<script type="text/javascript">
+				$(document).ready(function() {
+				  var owl = $('.owl-carousel');
+				  owl.owlCarousel({
+					margin: 20,
+					nav: true,
+					loop: true,
+					autoplay: true,
+                    autoplayTimeout: 8000,
+                    autoplayHoverPause: true,
+					responsive: {
+					  0: {
+						items: 1
+					  },
+					  600: {
+						items: 2
+					  },
+					  1000: {
+						items: 2
+					  }
+					}
+				  })
+				})
+			  </script>
+
+ <!-- custom scrollbar-->
+
+	<link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_directory_uri(); ?>/css/jquery.mCustomScrollbar.css">
+	<script>window.jQuery || document.write('<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/js/jquery-1.11.0.min.js"><\/script>')</script>
+	<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.mCustomScrollbar.concat.min.js"></script>
+	 
+	 <script type="text/javascript">
+		(function($){
+			$(window).on("load",function(){
+					$("#team-content").mCustomScrollbar({
+					axis:"x",
+					theme:"light-3",
+					advanced:{autoExpandHorizontalScroll:true}
+				});
+			});
+		})(jQuery);
+	</script>
+	 	
+		
 	</body>
 </html>
