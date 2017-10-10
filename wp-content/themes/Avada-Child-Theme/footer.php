@@ -207,7 +207,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 			});
 		})(jQuery);
 	</script>
-	 	
-		
 	</body>
 </html>
