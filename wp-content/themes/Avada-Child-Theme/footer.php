@@ -171,7 +171,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				  owl.owlCarousel({
 					margin: 20,
 					nav: true,
-					loop: true,
+					loop: false,
 					autoplay: true,
                     autoplayTimeout: 8000,
                     autoplayHoverPause: true,
@@ -187,8 +187,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 					  }
 					}
 				  })
-				})
-			  </script>
+				});
+			
+		
+  </script>
+
+
+<script type="text/javascript">
+	$(document).ready(function () {
+  
+     $("#owl-demo2").owlCarousel({
+        pagination : false,
+        loop: false,
+     });
+});
+
+  </script>
+
+
 
  <!-- custom scrollbar-->
 

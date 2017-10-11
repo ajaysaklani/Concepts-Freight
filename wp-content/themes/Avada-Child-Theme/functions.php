@@ -205,3 +205,40 @@ function meetTeam()
 return $html;
 	}
 add_shortcode('meetTeam', 'meetTeam');
+
+function teamMobile()
+{
+        ob_start();
+		$args=array(
+		'post_type' => 'team',
+		'post_status' => 'publish',
+		'order' => 'asc',
+		'posts_per_page' => 10
+		);
+	
+		$my_query = new WP_Query($args);
+		if($my_query->have_posts()) 
+		{
+			//echo '<h2 class="widgettitle">News</h2>'; 
+			echo ' <div id="owl-demo2" class="owl-carousel owl-theme teamMobile">';
+			while ($my_query->have_posts()) : $my_query->the_post(); 
+			echo '<div class="item">';
+			?>
+			<div class="thum">
+			 <?php the_post_thumbnail( 'wpbs-featured' ); ?>
+			</div>
+			<div class="team-info overlay">
+			 <h4><?php the_title(); ?></h4>
+			 <?php the_content(); ?>
+		  	  </div>
+			<?php
+		
+			echo '</div>';
+			endwhile;
+			echo '</div></div> </div>'; 
+		}
+	 $output = ob_get_clean();
+     return $output;
+ 
+}
+add_shortcode('teamMobile', 'teamMobile');
