@@ -172,10 +172,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					margin: 20,
 					nav: true,
 					loop: false,
-					autoplay: true,
-                    autoplayTimeout: 8000,
-                    autoplayHoverPause: true,
-					responsive: {
+					responsive: { 
 					  0: {
 						items: 1
 					  },
@@ -200,11 +197,41 @@ if ( ! defined( 'ABSPATH' ) ) {
         pagination : false,
         loop: false,
      });
+   	function initialize() {
+   		var mapId = $(".tab-maps").attr('id');
+    var latlng = new google.maps.LatLng(-34.397, 150.644);
+    var myOptions = {
+       center: new google.maps.LatLng(0, 0),
+    	zoom: Math.ceil(Math.log2($(window).width())) - 8,
+    };
+    var map = new google.maps.Map(document.getElementById(mapId),
+            myOptions);
+}
+//google.maps.event.addDomListener(window, "load", initialize);
+
+
+ $('.selectpicker').selectpicker({
+              style: 'btn-info',
+             size: 20
+             });
+
 });
+
+
+
+
+
 
   </script>
 
 
+
+<!-- custom scrollbar plugin -->
+<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/js/bootstrap-select.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_directory_uri(); ?>/css/bootstrap-select.css">
+      <!-- custom scrollbar stylesheet -->
+       
 
  <!-- custom scrollbar-->
 

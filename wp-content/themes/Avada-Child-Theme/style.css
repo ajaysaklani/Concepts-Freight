@@ -140,8 +140,16 @@ padding: 0!important;}
 .quotes-home form{padding:30px; }
 .form-check{text-align:center; font-size:14px; color:#262626; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #e4e4e4;}
 .form-check .custom-control{padding: 0 50px;}
-.quotes-home input[type="text"], .quotes-home select ,.quotes-home input[type="email"], .wpcf7-textarea{ width:100%; border:1px solid #d3d3d3; padding: 8px 10px; color:#767575; font-size:15px;
+
+.quotes-home input[type="text"], .quotes-home select ,.quotes-home input[type="email"], .wpcf7-textarea{ width:100%; border:0;
+border-bottom:1px solid #d3d3d3; padding: 8px 10px; color:#767575; font-size:15px; padding-left:0;
 border-radius: 2px; height: inherit; margin-bottom: 15px; font-family: 'Open Sans', sans-serif;}
+ 
+.form-check .open .dropdown-menu{display:block;}
+
+
+
+
 .quotes-home .col-form-label{display: block; color:#262626; font-size:14px; margin-bottom: 5px;} 
 .get-btn{background-color: #ffd333; color:#262626; font-size:15px; font-weight: bold; text-transform: uppercase; border-radius: 2px;
 padding: 10px;  border:0; cursor: pointer; display: block; text-align: center; margin-top: 25px; width:100%; font-family: 'Open Sans', sans-serif;}
@@ -360,11 +368,15 @@ border-bottom:1px solid #e4e4e4;}
 .page-air-freight-services .fusion-page-title-bar-center .fusion-page-title-captions{ top: -60px;  position: relative;}
 .services-top{background-color:#fff!important; box-shadow: 0px 3px 10px 2px rgba(0,0,0,0.10);  margin-top: -150px!important;
 border-radius: 4px; padding:40px 25px; text-align :center; max-width: 1160px; margin-left: auto !important; margin-right: auto !important;} 
-.services-top a{background-color: #ed1d25; width:103px; height: 103px; display: inline-block; vertical-align: middle; border-radius: 50%;
-line-height: 103px; pointer-events: none;}
+.services-top a.red-block{background-color: #ed1d25; width:103px; height: 103px; display: inline-block; vertical-align: middle; border-radius: 50%;
+line-height: 103px;}
+
 .services-top img{display: inline-block; vertical-align: middle;}
+
 .services-top h5{font-size:16px!important; color:#434343; font-weight: 600!important; margin:0;} 
+.services-top h5 a{color:#434343;}
 .services-top p{margin-bottom: 10px;}
+
 .post-content p{font-size:15px; color: #5a5b5b;}
 .service-facts{border:1px solid #e2e2e2; padding: 25px 35px; float: left; width: 58%; min-height: 332px;}
 .service-facts li{list-style: none; font-size:16px; color: #5a5b5b; background: url(images/list-type.png) no-repeat left 12px;
@@ -736,3 +748,15 @@ line-height: normal!important;}
 .teamMobile .owl-nav .owl-prev{left: -15px;}
 .latest-news h1{font-size:35px;}
 .teamMobile .owl-nav button span {width: 15px; height: 41px;}
+.tab-maps .fusion-info-box{padding:10px!important; font-family: 'Open Sans', sans-serif!important;}
+.tooltips-box{background-color:#fff; width: 282px; box-shadow: 0px 1px 50px 1px rgba(0,0,0,0.10);  position: absolute; top:-100px;
+left:50%; border-radius: 5px; padding:15px; text-align: left; font-size:13px; color:#5a5b5b; margin-left: -141px; -webkit-transition: .4s;
+transition: .4s;  display: none;}
+.tooltips-box:before{position: absolute; bottom: -10px; background:url(images/tool.png) no-repeat bottom center; width:20px; height: 10px;
+content: ""; left:50%; margin-left: -10px; } 
+.checkbox{position: relative;}
+.checkbox:hover .tooltips-box{display: block;}
+.btn-info{background-color:transparent; border:0; border-bottom:1px solid #d3d3d3; border-radius:0; font-size:14px; color:#646464; padding:7px 0;}
+.btn-info.active, .btn-info:active, .show>.btn-info.dropdown-toggle{background-color:transparent; border:0; border-bottom:1px solid #d3d3d3;}
+.btn-info:hover{background-color:transparent; border:0; border-bottom:1px solid #d3d3d3; color:#646464;}
+.btn-info.focus, .btn-info:focus {box-shadow: none;}
