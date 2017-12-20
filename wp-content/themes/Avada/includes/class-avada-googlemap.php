@@ -302,6 +302,7 @@ class Avada_GoogleMap {
 				var map_<?php echo esc_attr( $map_id ); ?>;
 				var markers = [];
 				var counter = 0;
+				var fusionMapNonce = '<?php echo wp_create_nonce( 'avada_admin_ajax' ); ?>';
 				function fusion_run_map_<?php echo esc_attr( $map_id ); ?>() {
 					jQuery('#<?php echo esc_attr( $map_id ); ?>').fusion_maps({
 						<?php // @codingStandardsIgnoreLine ?>

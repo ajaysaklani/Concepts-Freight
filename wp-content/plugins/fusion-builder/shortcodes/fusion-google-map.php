@@ -30,6 +30,16 @@ if ( fusion_is_element_enabled( 'fusion_map' ) ) {
 			protected $args;
 
 			/**
+			 * Whether the nonces script has already been added for the map.
+			 *
+			 * @static
+			 * @access private
+			 * @since 1.3
+			 * @var bool
+			 */
+			private static $nonce_added = false;
+
+			/**
 			 * Constructor.
 			 *
 			 * @access public
@@ -231,13 +241,20 @@ if ( fusion_is_element_enabled( 'fusion_map' ) ) {
 						'sat' => Fusion_Color::new_color( $overlay_color )->saturation,
 						'lum' => Fusion_Color::new_color( $overlay_color )->lightness,
 					);
-
+					
 					ob_start(); ?>
 					<script type="text/javascript">
-						var map_<?php echo $map_id; // WPCS: XSS ok. ?>;
+						var map_<?php echo $map_id;?>;
 						var markers = [];
 						var counter = 0;
+						var nMapId = '<?php echo $id;?>';
+						<?php if ( ! self::$nonce_added ) : ?>
+							<?php self::$nonce_added = true; ?>
+							var fusionMapNonce = '<?php echo wp_create_nonce( 'avada_admin_ajax' ); ?>';
+						<?php endif; ?>
 						function fusion_run_map_<?php echo $map_id ; // WPCS: XSS ok. ?>() {
+							console.log("clicked");
+							
 							jQuery('#<?php echo $map_id; // WPCS: XSS ok. ?>').fusion_maps({
 								addresses: <?php echo $json_addresses; // WPCS: XSS ok. ?>,
 								animations: <?php echo ( 'yes' == $animation ) ? 'true' : 'false'; ?>,
@@ -256,9 +273,37 @@ if ( fusion_is_element_enabled( 'fusion_map' ) ) {
 								zoom: <?php echo $zoom; // WPCS: XSS ok. ?>,
 								zoom_control: <?php echo ( 'yes' == $zoom_pancontrol ) ? 'true' : 'false'; ?>,
 							});
+							//console.log(map);
+							
+							
+							/* map = new google.maps.Map(document.getElementById('<?php echo $map_id ;?>'), {
+								addresses: <?php echo $json_addresses;?>,
+								animations: <?php echo ( 'yes' == $animation ) ? 'true' : 'false'; ?>,
+								infobox_background_color: '<?php echo $infobox_background_color; ?>',
+								infobox_styling: '<?php echo $infobox; ?>',
+								infobox_text_color: '<?php echo $infobox_text_color; ?>',
+								map_style: '<?php echo $map_style; ?>',
+								map_type: '<?php echo $type; ?>',
+								marker_icon: '<?php echo $icon; ?>',
+								overlay_color: '<?php echo $overlay_color; ?>',
+								overlay_color_hsl: <?php echo wp_json_encode( $overlay_color_hsl ); ?>,
+								pan_control: <?php echo ( 'yes' == $zoom_pancontrol ) ? 'true' : 'false'; ?>,
+								show_address: <?php echo ( 'yes' == $popup ) ? 'true' : 'false'; ?>,
+								scale_control: <?php echo ( 'yes' == $scale ) ? 'true' : 'false'; ?>,
+								scrollwheel: <?php echo ( 'yes' == $scrollwheel ) ? 'true' : 'false'; ?>,
+								zoom: <?php echo $zoom; ?>,
+								zoom_control: <?php echo ( 'yes' == $zoom_pancontrol ) ? 'true' : 'false'; ?>,
+							}); 
+							
+							google.maps.event.addDomListener(document.getElementById("fusion-tab-oceanservice"), "click", function(){
+								var center = map.getCenter();
+								google.maps.event.trigger(map, "resize");
+								map.setCenter(center)
+							});  */
 						}
-
+					
 						google.maps.event.addDomListener(window, 'load', fusion_run_map_<?php echo $map_id; // WPCS: XSS ok. ?>);
+						
 					</script>
 					<?php
 					if ( $defaults['id'] ) {

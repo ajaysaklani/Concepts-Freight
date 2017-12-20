@@ -209,28 +209,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 //google.maps.event.addDomListener(window, "load", initialize);
 
-
- $('.selectpicker').selectpicker({
-              style: 'btn-info',
-             size: 20
-             });
-
 });
-
-
-
-
-
 
   </script>
 
 
 
-<!-- custom scrollbar plugin -->
-<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/js/bootstrap-select.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_directory_uri(); ?>/css/bootstrap-select.css">
-      <!-- custom scrollbar stylesheet -->
+
        
 
  <!-- custom scrollbar-->
@@ -248,7 +233,114 @@ if ( ! defined( 'ABSPATH' ) ) {
 					advanced:{autoExpandHorizontalScroll:true}
 				});
 			});
-		})(jQuery);
+			
+			
+			})(jQuery);		
 	</script>
+	<!-- select 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>	
+<script type="text/javascript" src="< ?php echo get_stylesheet_directory_uri(); ?>/js/bootstrap-select.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="< ?php echo get_stylesheet_directory_uri(); ?>/css/bootstrap-select.css"> 
+   
+	<script type="text/javascript">
+		jQuery(document).ready(function(){
+			 jQuery('.selectpicker').selectpicker({
+              style: 'btn-info',
+              size: 10
+             });
+             
+        jQuery('.form_date').datetimepicker({
+         language:  'Eng',
+         weekStart: 1,
+         todayBtn:  1,
+         autoclose: 1,
+         todayHighlight: 1,
+         startView: 2,
+         minView: 2,
+         forceParse: 0
+         });
+				
+		
+		});
+	</script>
+	
+	classie -->
+	<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/js/classie.js"></script>
+	
+	<script type="text/javascript">
+			(function() {
+				if (!String.prototype.trim) {
+					(function() {
+						 
+						var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+						String.prototype.trim = function() {
+							return this.replace(rtrim, '');
+						};
+					})();
+				}
+
+				[].slice.call( document.querySelectorAll( 'input.input__field' ) ).forEach( function( inputEl ) {
+					// in case the input is already filled..
+					if( inputEl.value.trim() !== '' ) {
+						classie.add( inputEl.parentNode, 'input--filled' );
+					}
+
+					// events:
+					inputEl.addEventListener( 'focus', onInputFocus );
+					inputEl.addEventListener( 'blur', onInputBlur );
+				} );
+
+				function onInputFocus( ev ) {
+					classie.add( ev.target.parentNode, 'input--filled' );
+				}
+
+				function onInputBlur( ev ) {
+					if( ev.target.value.trim() === '' ) {
+						classie.remove( ev.target.parentNode, 'input--filled' );
+					}
+				}
+				
+			
+				
+			})();
+		</script>
+	
+	
+	<!--classie Ends-->
+	
+	<!--datetimepicker-->
+	<!-- datetimepicker stylesheet -->
+	<link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_directory_uri(); ?>/css/bootstrap-datetimepicker.min.css">
+	<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/js/bootstrap-datetimepicker.js"></script>
+	<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/js/bootstrap-datetimepicker.fr.js"></script>
+
+<script type="text/javascript">
+	/* Added google map refresh functions */
+	$(document).ready(function(){
+		
+		function sonu(){
+			console.log('running...');
+		}
+		
+		function fusionTabOceanService(){
+			var g_Id = $("#OceanServiceMapId").find(".shortcode-map").attr("id");
+			//$("#OceanServiceMapId").find(".shortcode-map").html('');
+			var g_pre = "fusion_run_map_";
+			//google.maps.event.trigger(document.getElementById(g_Id), 'resize');
+			window[g_pre+g_Id]();
+			
+		}
+		google.maps.event.addDomListener(document.getElementById("fusion-tab-oceanservice"), "click", fusionTabOceanService);
+		//console.log(window);
+		
+	});
+	
+
+</script>
+
+
+ 
+	
 	</body>
 </html>

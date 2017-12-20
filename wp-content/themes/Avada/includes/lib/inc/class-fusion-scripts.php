@@ -573,7 +573,6 @@ class Fusion_Scripts {
 			'fusionMapsVars',
 			array(
 				'admin_ajax'       => admin_url( 'admin-ajax.php' ),
-				'admin_ajax_nonce' => wp_create_nonce( 'avada_admin_ajax' ),
 			)
 		);
 		Fusion_Dynamic_JS::localize_script(

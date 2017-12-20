@@ -75,6 +75,12 @@ class PyreThemeFrameworkMetaboxes {
 
 		// Select field assets.
 		wp_dequeue_script( 'tribe-events-select2' );
+
+		// Fixes #6185.
+		if ( wp_script_is( 'tribe-select2', 'enqueued' ) ) {
+			wp_enqueue_style( 'tribe-select2-css' );
+		}
+
 		wp_enqueue_style(
 			'select2-css',
 			Avada::$template_dir_url . '/assets/admin/css/select2.css',

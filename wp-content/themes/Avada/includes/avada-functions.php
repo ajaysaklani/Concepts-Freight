@@ -519,7 +519,7 @@ if ( ! function_exists( 'avada_nav_woo_cart' ) ) {
 			return '';
 		}
 
-		$woo_cart_page_link       = WC()->cart->get_cart_url();
+		$woo_cart_page_link       = wc_get_cart_url();
 		$cart_link_active_class   = '';
 		$cart_link_active_text    = '';
 		$is_enabled               = false;
@@ -1105,7 +1105,6 @@ if ( ! function_exists( 'avada_header_template' ) ) {
 			?>
 
 			<header class="<?php echo esc_attr( $header_wrapper_class ); ?>">
-			
 				<div class="<?php echo esc_attr( 'fusion-header-' . Avada()->settings->get( 'header_layout' ) . ' fusion-logo-' . strtolower( Avada()->settings->get( 'logo_alignment' ) ) . ' fusion-sticky-menu-' . has_nav_menu( 'sticky_navigation' ) . ' fusion-sticky-logo-' . $sticky_header_logo . ' fusion-mobile-logo-' . $mobile_logo . ' fusion-mobile-menu-design-' . strtolower( Avada()->settings->get( 'mobile_menu_design' ) ) . $sticky_header_type2_layout . ' ' . $menu_text_align ); ?>">
 					<?php
 					/**

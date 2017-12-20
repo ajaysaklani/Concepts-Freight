@@ -522,11 +522,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<tr>
 					<td data-export-label="WP Remote Post"><?php esc_attr_e( 'WP Remote Post:', 'Avada' ); ?></td>
 					<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Avada uses this method to communicate with different APIs, e.g. Google, Twitter, Facebook.', 'Avada' ) . '">[?]</a>'; ?></td>
-					<?php $response = wp_safe_remote_post( 'https://envato.com/', array(
+					<?php $response = wp_safe_remote_post( 'https://www.google.com/recaptcha/api/siteverify', array(
 						'decompress' => false,
 						'user-agent' => 'avada-remote-get-test',
 					) ); ?>
-					<td><?php echo ( ! is_wp_error( $response ) && $response['response']['code'] >= 200 && $response['response']['code'] < 300 ) ? '<mark class="yes">&#10004;</mark>' : '<mark class="error">wp_remote_post() failed. Some theme features may not work. Please contact your hosting provider and make sure that https://envato.com/ is not blocked.</mark>'; ?></td>
+					<td><?php echo ( ! is_wp_error( $response ) && $response['response']['code'] >= 200 && $response['response']['code'] < 300 ) ? '<mark class="yes">&#10004;</mark>' : '<mark class="error">wp_remote_post() failed. Some theme features may not work. Please contact your hosting provider and make sure that https://www.google.com/recaptcha/api/siteverify is not blocked.</mark>'; ?></td>
 				</tr>
 				<tr>
 					<td data-export-label="GD Library"><?php esc_attr_e( 'GD Library:', 'Avada' ); ?></td>

@@ -269,7 +269,7 @@ if ( fusion_is_element_enabled( 'fusion_sharing' ) ) {
 						// TODO: Use Jetpack's implementation instead.
 						// @codingStandardsIgnoreLine
 						if ( ! wp_is_mobile() ) {
-							$social_link = 'http://www.facebook.com/sharer.php?m2w&s=100&p&#91;url&#93;=' . $link . '&p&#91;images&#93;&#91;0&#93;=' . wp_get_attachment_url( get_post_thumbnail_id( get_the_ID() ) ) . '&p&#91;title&#93;=' . rawurlencode( $title );
+							$social_link = 'https://www.facebook.com/sharer.php?u=' . rawurlencode( $link ) . '&t=' . rawurlencode( $title );
 						}
 						break;
 
@@ -303,7 +303,7 @@ if ( fusion_is_element_enabled( 'fusion_sharing' ) ) {
 				$attr['href']   = $social_link;
 				$attr['target'] = ( $fusion_settings->get( 'social_icons_new' ) && 'mail' != $args['social_network'] ) ? '_blank' : '_self';
 
-				if ( '_blank' == $attr['target'] ) {
+				if ( '_blank' === $attr['target'] && 'facebook' !== $args['social_network'] ) {
 					$attr['rel'] = 'noopener noreferrer';
 				}
 
